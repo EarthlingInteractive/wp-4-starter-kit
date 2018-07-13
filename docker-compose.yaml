@@ -1,0 +1,48 @@
+version: '2'
+services:
+  wordpress-www:
+    build: .
+    hostname: 'wordpress-www'
+    container_name: 'wordpress-www'
+    entrypoint: /entrypoint.sh
+    command: ["httpd-foreground"]
+    env_file:
+      - env
+    ports:
+      - '80:80'
+    volumes:
+      - 'wordpress-scratch-data:/var/www'
+      - './public_html:/var/www/public_html'
+      - 'wordpress-upload-data:/var/www/public_html/wp-content/uploads'
+      - 'wordpress-cache-data:/var/www/public_html/wp-content/cache'
+      - './entrypoint.sh:/entrypoint.sh'
+    depends_on:
+      - wordpress-mysql 
+    working_dir: '/var/www'
+    links:
+      - 'wordpress-mysql:wordpress-mysql'
+    networks:
+      - app
+
+  wordpress-mysql:
+    environment:
+      - 'MYSQL_ROOT_PASSWORD=qwe123'
+    ports:
+      - '3306:3306'
+    volumes:
+      - 'wordpress-mysql-data:/var/lib/mysql'
+    image: 'mariadb:latest'
+    container_name: 'wordpress-mysql'
+    hostname: 'wordpress-mysql'
+    networks:
+      - app
+
+networks:
+  app:
+    driver: bridge
+
+volumes:
+  wordpress-scratch-data:
+  wordpress-cache-data:
+  wordpress-mysql-data:
+  wordpress-upload-data:

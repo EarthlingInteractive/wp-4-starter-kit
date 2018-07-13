@@ -1,0 +1,4 @@
+.idea
+*.swp
+public_html/wp-content/uploads
+public_html/wp-content/cache

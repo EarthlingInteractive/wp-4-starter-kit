@@ -1,0 +1,86 @@
+table.url-replacement {
+	border:1px solid #000;
+}
+table.url-replacement td,
+table.url-replacement th {
+	border:1px solid #000;
+	max-width: 500px;
+}
+table.url-replacement th {
+	background-color: #0085ba;
+	color: #FFF!important;
+}
+del {
+	background-color:#ffcccc
+}
+ins {
+	background-color:#ccffcc
+}
+.sidebar {
+	width: 25%;
+	float: right;
+	box-sizing: border-box;
+    padding: 0 25px 0;
+
+}
+.sidebar img {
+	width: 100%;
+	height: auto;
+}
+.section {
+	width: 75%;
+	background-color: #FFF;
+	border: 1px solid #000;
+	float: left;
+	padding: 25px;
+	box-sizing: border-box;
+	margin-bottom: 25px;
+}
+.section .section-header {
+	background-color: #0085ba;
+	color: #FFF;
+	margin: -25px -25px 30px -25px;
+	padding: 15px;
+	text-align: center;
+	font-size: 27px;
+	line-height: 32px;
+}
+.results {
+	padding-right: 20px;
+	width: 100%;
+	float: left;
+	box-sizing: border-box;
+	position: relative;
+}
+.first-notice {
+	margin-bottom: 100px;
+}
+.notice.notice-error {
+	margin-left: 0;
+    padding: 15px;
+    margin-top: 25px;
+    background-color: #f1f1f1;
+}
+#number-results-found {
+	position: absolute;
+    top: 70px;
+    width: 93%;
+}
+select {
+	width: 25em;
+}
+@media screen and (max-width: 767px) {
+    select {
+    	height: auto!important;
+    	width: auto;
+    }
+    #wpcontent {
+    	padding-right: 10px;
+    }
+    .sidebar {
+    	display: none;
+    }
+    .section {
+    	width: 100%;
+    }
+}
